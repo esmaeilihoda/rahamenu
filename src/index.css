@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 40 20% 95%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 30 60% 45%;
+    --primary-foreground: 40 20% 95%;
+
+    --secondary: 30 20% 18%;
+    --secondary-foreground: 40 20% 85%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 40 10% 60%;
+
+    --accent: 30 80% 50%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 30 10% 20%;
+    --input: 30 10% 20%;
+    --ring: 30 60% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --coffee: 30 60% 45%;
+    --coffee-light: 30 40% 55%;
+    --cream: 40 30% 90%;
+    --latte: 35 25% 75%;
+    --espresso: 20 30% 12%;
+    
+    /* Status colors */
+    --status-empty: 142 70% 45%;
+    --status-browsing: 210 70% 50%;
+    --status-ordered: 35 90% 55%;
+    --status-alert: 0 70% 55%;
+
+    /* Glass effect */
+    --glass: 0 0% 100% / 0.05;
+    --glass-border: 0 0% 100% / 0.1;
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 40 20% 85%;
+    --sidebar-primary: 30 60% 45%;
+    --sidebar-primary-foreground: 40 20% 95%;
+    --sidebar-accent: 30 20% 15%;
+    --sidebar-accent-foreground: 40 20% 90%;
+    --sidebar-border: 30 10% 18%;
+    --sidebar-ring: 30 60% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-[hsl(var(--glass))] backdrop-blur-xl border border-[hsl(var(--glass-border))];
+  }
+
+  .glass-card {
+    @apply bg-[hsl(var(--glass))] backdrop-blur-md border border-[hsl(var(--glass-border))] rounded-2xl;
+  }
+
+  .pill-active {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .pill-inactive {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+
+  .status-empty {
+    @apply bg-[hsl(var(--status-empty))];
+  }
+
+  .status-browsing {
+    @apply bg-[hsl(var(--status-browsing))];
+  }
+
+  .status-ordered {
+    @apply bg-[hsl(var(--status-ordered))];
+  }
+
+  .status-alert {
+    @apply bg-[hsl(var(--status-alert))] animate-pulse;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-[hsl(var(--coffee-light))] to-[hsl(var(--cream))] bg-clip-text text-transparent;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* RTL Support */
+  [dir="rtl"] .rtl\:flip {
+    transform: scaleX(-1);
+  }
+}
