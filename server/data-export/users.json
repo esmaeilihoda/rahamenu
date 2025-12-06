@@ -1,0 +1,52 @@
+[
+  {
+    "_id": "692f8e9bc1fe341f4d453fe0",
+    "email": "owner@democafe.local",
+    "password": "$2a$12$727bAwURXlIJSdUhXMc/k.pFSisdKi/zjX9C/dVO.5qLjps5AlPs2",
+    "name": "مالک دمو",
+    "role": "manager",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "isActive": true,
+    "createdAt": "2025-12-03T01:12:59.842Z",
+    "updatedAt": "2025-12-03T01:13:00.077Z",
+    "__v": 0
+  },
+  {
+    "_id": "692f8e9cc1fe341f4d453fea",
+    "email": "manager@democafe.local",
+    "password": "$2a$12$WTZUXt1TAzyhOQuiQLgBbOODHZPzt/p8NrtEka0AeaZuofWGBcYmu",
+    "name": "رها محمودیان",
+    "role": "manager",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "isActive": true,
+    "createdAt": "2025-12-03T01:13:00.080Z",
+    "updatedAt": "2025-12-05T08:13:38.466Z",
+    "__v": 0,
+    "lastLogin": "2025-12-05T08:13:38.465Z"
+  },
+  {
+    "_id": "692f8e9cc1fe341f4d453feb",
+    "email": "kitchen@democafe.local",
+    "password": "$2a$12$fMpAJm8ys..0v867UvJl7ODp17VebLbRGOq.nkrsK36N5O8.7.up.",
+    "name": "آشپز دمو",
+    "role": "kitchen",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "isActive": true,
+    "createdAt": "2025-12-03T01:13:00.080Z",
+    "updatedAt": "2025-12-03T10:00:44.743Z",
+    "__v": 0,
+    "lastLogin": "2025-12-03T10:00:44.742Z"
+  },
+  {
+    "_id": "692f8e9cc1fe341f4d453fec",
+    "email": "admin@menubloom.local",
+    "password": "$2a$12$kyEjrD6ucnT2B56aHPga4eTOJaZjAuMmaPCVvCcRReYZ7OdwYPItS",
+    "name": "ادمین سیستم",
+    "role": "admin",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "isActive": true,
+    "createdAt": "2025-12-03T01:13:00.080Z",
+    "updatedAt": "2025-12-03T01:13:00.080Z",
+    "__v": 0
+  }
+]

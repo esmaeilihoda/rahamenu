@@ -1,0 +1,533 @@
+[
+  {
+    "_id": "693033a18b04c60e7a9b3895",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 11,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff0",
+        "name": "اسپرسو",
+        "quantity": 1,
+        "customizations": {
+          "milk": "dairy",
+          "sweetness": 50,
+          "addOns": [
+            "کروسان"
+          ]
+        },
+        "price": 45000
+      }
+    ],
+    "status": "served",
+    "totalAmount": 45000,
+    "customerNotes": "",
+    "paymentStatus": "pending_payment",
+    "createdAt": "2025-12-03T12:57:05.801Z",
+    "updatedAt": "2025-12-03T12:58:41.845Z",
+    "__v": 0,
+    "payment": {
+      "method": "counter",
+      "status": "pending"
+    },
+    "confirmedAt": "2025-12-03T12:57:27.708Z",
+    "servedAt": "2025-12-03T12:58:41.845Z"
+  },
+  {
+    "_id": "693036458b04c60e7a9b3962",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 11,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff2",
+        "name": "لاته",
+        "quantity": 1,
+        "customizations": {
+          "milk": "oat",
+          "sweetness": 84,
+          "addOns": []
+        },
+        "price": 70000
+      },
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff3",
+        "name": "آیس لاته",
+        "quantity": 1,
+        "customizations": {
+          "milk": "dairy",
+          "sweetness": 50,
+          "addOns": []
+        },
+        "price": 75000
+      },
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff0",
+        "name": "اسپرسو",
+        "quantity": 1,
+        "customizations": {
+          "milk": "oat",
+          "sweetness": 50,
+          "addOns": [
+            "کروسان"
+          ]
+        },
+        "price": 45000
+      }
+    ],
+    "status": "served",
+    "totalAmount": 190000,
+    "customerNotes": "",
+    "paymentStatus": "pending_payment",
+    "createdAt": "2025-12-03T13:08:21.799Z",
+    "updatedAt": "2025-12-03T13:14:24.916Z",
+    "__v": 0,
+    "confirmedAt": "2025-12-03T13:09:35.847Z",
+    "servedAt": "2025-12-03T13:14:24.916Z"
+  },
+  {
+    "_id": "6930373d8b04c60e7a9b39ed",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 11,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff0",
+        "name": "اسپرسو",
+        "quantity": 1,
+        "customizations": {
+          "milk": "oat",
+          "sweetness": 50,
+          "addOns": []
+        },
+        "price": 45000
+      }
+    ],
+    "status": "served",
+    "totalAmount": 45000,
+    "customerNotes": "",
+    "paymentStatus": "pending_payment",
+    "createdAt": "2025-12-03T13:12:29.333Z",
+    "updatedAt": "2025-12-03T13:14:13.674Z",
+    "__v": 0,
+    "payment": {
+      "method": "counter",
+      "status": "pending"
+    },
+    "confirmedAt": "2025-12-03T13:13:14.085Z",
+    "servedAt": "2025-12-03T13:14:13.674Z"
+  },
+  {
+    "_id": "69303d404218ebc2fd91e198",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 9,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff0",
+        "name": "اسپرسو",
+        "quantity": 1,
+        "customizations": {
+          "milk": "almond",
+          "sweetness": 50,
+          "addOns": [
+            "کروسان"
+          ]
+        },
+        "price": 45000
+      }
+    ],
+    "status": "served",
+    "totalAmount": 45000,
+    "customerNotes": "",
+    "paymentStatus": "paid",
+    "createdAt": "2025-12-03T13:38:08.383Z",
+    "updatedAt": "2025-12-03T13:40:32.648Z",
+    "__v": 0,
+    "payment": {
+      "method": "counter",
+      "status": "confirmed",
+      "verifiedAt": "2025-12-03T13:39:40.631Z"
+    },
+    "confirmedAt": "2025-12-03T13:39:08.774Z",
+    "servedAt": "2025-12-03T13:40:32.648Z"
+  },
+  {
+    "_id": "6930405375c712a91b7a3a0e",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 9,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff0",
+        "name": "اسپرسو",
+        "quantity": 1,
+        "customizations": {
+          "milk": "dairy",
+          "sweetness": 50,
+          "addOns": []
+        },
+        "price": 45000
+      }
+    ],
+    "status": "cancelled",
+    "totalAmount": 45000,
+    "customerNotes": "",
+    "paymentStatus": "pending_payment",
+    "createdAt": "2025-12-03T13:51:15.337Z",
+    "updatedAt": "2025-12-03T14:04:08.400Z",
+    "__v": 0,
+    "payment": {
+      "method": "counter",
+      "status": "pending"
+    }
+  },
+  {
+    "_id": "693043324e48d9c35d004879",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 9,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff0",
+        "name": "اسپرسو",
+        "quantity": 1,
+        "customizations": {
+          "milk": "almond",
+          "sweetness": 71,
+          "addOns": [
+            "کروسان"
+          ]
+        },
+        "price": 45000
+      },
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff4",
+        "name": "کروسان",
+        "quantity": 1,
+        "customizations": {
+          "milk": "dairy",
+          "sweetness": 50,
+          "addOns": []
+        },
+        "price": 55000
+      }
+    ],
+    "status": "served",
+    "totalAmount": 100000,
+    "customerNotes": "",
+    "paymentStatus": "pending_payment",
+    "createdAt": "2025-12-03T14:03:30.385Z",
+    "updatedAt": "2025-12-03T14:09:31.465Z",
+    "__v": 0,
+    "confirmedAt": "2025-12-03T14:04:27.803Z",
+    "servedAt": "2025-12-03T14:09:31.465Z"
+  },
+  {
+    "_id": "6930c3df034a251c97fff853",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 9,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff2",
+        "name": "لاته",
+        "quantity": 1,
+        "customizations": {
+          "milk": "dairy",
+          "sweetness": 65,
+          "addOns": []
+        },
+        "price": 70000
+      }
+    ],
+    "status": "served",
+    "totalAmount": 70000,
+    "customerNotes": "",
+    "paymentStatus": "pending_payment",
+    "createdAt": "2025-12-03T23:12:31.679Z",
+    "updatedAt": "2025-12-03T23:13:55.361Z",
+    "__v": 0,
+    "payment": {
+      "method": "counter",
+      "status": "pending"
+    },
+    "confirmedAt": "2025-12-03T23:12:59.809Z",
+    "servedAt": "2025-12-03T23:13:55.361Z"
+  },
+  {
+    "_id": "6930cd90571af7ca73b472db",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 9,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff2",
+        "name": "لاته",
+        "quantity": 1,
+        "customizations": {
+          "milk": "oat",
+          "sweetness": 50,
+          "addOns": []
+        },
+        "price": 70000
+      }
+    ],
+    "selectedVibe": "relaxing",
+    "status": "served",
+    "totalAmount": 70000,
+    "customerNotes": "",
+    "paymentStatus": "pending_payment",
+    "createdAt": "2025-12-03T23:53:52.084Z",
+    "updatedAt": "2025-12-03T23:54:38.112Z",
+    "__v": 0,
+    "payment": {
+      "method": "counter",
+      "status": "pending"
+    },
+    "confirmedAt": "2025-12-03T23:54:03.186Z",
+    "servedAt": "2025-12-03T23:54:38.112Z"
+  },
+  {
+    "_id": "6930dbab381bbdb5e1873885",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 9,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff0",
+        "name": "اسپرسو",
+        "quantity": 1,
+        "customizations": {
+          "milk": "oat",
+          "sweetness": 100,
+          "addOns": []
+        },
+        "price": 45000
+      }
+    ],
+    "status": "served",
+    "totalAmount": 45000,
+    "customerNotes": "",
+    "paymentStatus": "pending_payment",
+    "createdAt": "2025-12-04T00:54:03.516Z",
+    "updatedAt": "2025-12-04T01:13:59.815Z",
+    "__v": 0,
+    "payment": {
+      "method": "counter",
+      "status": "pending"
+    },
+    "confirmedAt": "2025-12-04T01:13:26.084Z",
+    "servedAt": "2025-12-04T01:13:59.815Z"
+  },
+  {
+    "_id": "6930f666e62a9fe812b2ed22",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 9,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff1",
+        "name": "کاپوچینو",
+        "quantity": 1,
+        "customizations": {
+          "sweetness": 50,
+          "addOns": [
+            "کارامل"
+          ]
+        },
+        "price": 65000
+      },
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff1",
+        "name": "کاپوچینو",
+        "quantity": 1,
+        "customizations": {
+          "sweetness": 50,
+          "addOns": [
+            "وانیلی"
+          ]
+        },
+        "price": 65000
+      },
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff0",
+        "name": "اسپرسو",
+        "quantity": 1,
+        "customizations": {
+          "sweetness": 59,
+          "addOns": [
+            "کروسان"
+          ]
+        },
+        "price": 45000
+      }
+    ],
+    "status": "served",
+    "totalAmount": 175000,
+    "customerNotes": "",
+    "paymentStatus": "pending_payment",
+    "createdAt": "2025-12-04T02:48:06.500Z",
+    "updatedAt": "2025-12-04T02:57:07.106Z",
+    "__v": 0,
+    "payment": {
+      "method": "counter",
+      "status": "pending"
+    },
+    "confirmedAt": "2025-12-04T02:50:01.129Z",
+    "servedAt": "2025-12-04T02:57:07.106Z"
+  },
+  {
+    "_id": "69310bf739a305c9de9e5d86",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 2,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff4",
+        "name": "کروسان",
+        "quantity": 2,
+        "customizations": {
+          "sweetness": 50,
+          "addOns": []
+        },
+        "price": 110000
+      }
+    ],
+    "selectedVibe": "hungry",
+    "status": "served",
+    "totalAmount": 110000,
+    "customerNotes": "",
+    "paymentStatus": "pending_payment",
+    "createdAt": "2025-12-04T04:20:07.977Z",
+    "updatedAt": "2025-12-04T05:14:09.105Z",
+    "__v": 0,
+    "payment": {
+      "method": "counter",
+      "status": "pending"
+    },
+    "confirmedAt": "2025-12-04T04:28:02.281Z",
+    "servedAt": "2025-12-04T05:14:09.105Z"
+  },
+  {
+    "_id": "6931d01839a305c9de9e60c4",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 2,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff0",
+        "name": "اسپرسو",
+        "quantity": 1,
+        "customizations": {
+          "sweetness": 50,
+          "addOns": []
+        },
+        "price": 45000
+      }
+    ],
+    "status": "served",
+    "totalAmount": 45000,
+    "customerNotes": "",
+    "paymentStatus": "pending_payment",
+    "createdAt": "2025-12-04T18:16:56.741Z",
+    "updatedAt": "2025-12-04T21:06:58.117Z",
+    "__v": 0,
+    "confirmedAt": "2025-12-04T21:06:18.875Z",
+    "servedAt": "2025-12-04T21:06:58.117Z"
+  },
+  {
+    "_id": "6931f787dbada564cac8621c",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 2,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff0",
+        "name": "اسپرسو",
+        "quantity": 1,
+        "customizations": {
+          "sweetness": 50,
+          "addOns": [
+            "شیر بادام"
+          ]
+        },
+        "price": 45000
+      }
+    ],
+    "status": "served",
+    "totalAmount": 45000,
+    "customerNotes": "",
+    "paymentStatus": "paid",
+    "createdAt": "2025-12-04T21:05:11.015Z",
+    "updatedAt": "2025-12-04T21:06:21.246Z",
+    "__v": 0,
+    "payment": {
+      "method": "counter",
+      "status": "confirmed",
+      "verifiedAt": "2025-12-04T21:06:09.341Z"
+    },
+    "confirmedAt": "2025-12-04T21:05:56.311Z",
+    "servedAt": "2025-12-04T21:06:21.246Z"
+  },
+  {
+    "_id": "6932944ddbada564cac86348",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 4,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff0",
+        "name": "اسپرسو",
+        "quantity": 1,
+        "customizations": {
+          "sweetness": 50,
+          "addOns": []
+        },
+        "price": 45000
+      }
+    ],
+    "selectedVibe": "energy",
+    "status": "served",
+    "totalAmount": 45000,
+    "customerNotes": "",
+    "paymentStatus": "pending_payment",
+    "createdAt": "2025-12-05T08:14:05.833Z",
+    "updatedAt": "2025-12-05T14:40:03.428Z",
+    "__v": 0,
+    "payment": {
+      "method": "counter",
+      "status": "pending"
+    },
+    "confirmedAt": "2025-12-05T14:39:34.656Z",
+    "servedAt": "2025-12-05T14:40:03.428Z"
+  },
+  {
+    "_id": "6932ee49dbada564cac863aa",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "tableNumber": 4,
+    "items": [
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff0",
+        "name": "اسپرسو",
+        "quantity": 1,
+        "customizations": {
+          "sweetness": 80,
+          "addOns": [
+            "کروسان",
+            "شیر بادام"
+          ]
+        },
+        "price": 45000
+      },
+      {
+        "menuItemId": "692f8e9cc1fe341f4d453ff4",
+        "name": "کروسان",
+        "quantity": 1,
+        "customizations": {
+          "sweetness": 50,
+          "addOns": []
+        },
+        "price": 55000
+      }
+    ],
+    "selectedVibe": "hungry",
+    "status": "pending",
+    "totalAmount": 100000,
+    "customerNotes": "",
+    "paymentStatus": "pending_payment",
+    "createdAt": "2025-12-05T14:38:01.586Z",
+    "updatedAt": "2025-12-05T14:38:05.710Z",
+    "__v": 0,
+    "payment": {
+      "method": "counter",
+      "status": "pending"
+    }
+  }
+]

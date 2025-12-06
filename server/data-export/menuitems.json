@@ -1,0 +1,179 @@
+[
+  {
+    "_id": "692f8e9cc1fe341f4d453ff0",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "name": "اسپرسو",
+    "description": "قهوه تلخ ایتالیایی",
+    "price": 45000,
+    "category": "coffee",
+    "vibes": [
+      "energy"
+    ],
+    "image": "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=400",
+    "available": true,
+    "createdAt": "2025-12-03T01:13:00.744Z",
+    "updatedAt": "2025-12-04T02:27:46.189Z",
+    "__v": 0,
+    "pairings": [
+      "692f8e9cc1fe341f4d453ff4"
+    ],
+    "addOns": [
+      {
+        "name": "شیر جو",
+        "price": 20000,
+        "emoji": "🌾",
+        "category": "milk",
+        "_id": "6930f113e62a9fe812b2eaf0"
+      },
+      {
+        "name": "شیر بادام",
+        "price": 20000,
+        "emoji": "🌰",
+        "category": "milk",
+        "_id": "6930f113e62a9fe812b2eaf1"
+      }
+    ]
+  },
+  {
+    "_id": "692f8e9cc1fe341f4d453ff1",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "name": "کاپوچینو",
+    "description": "قهوه با شیر و فوم",
+    "price": 65000,
+    "category": "coffee",
+    "vibes": [
+      "energy",
+      "relaxing"
+    ],
+    "image": "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400",
+    "available": true,
+    "createdAt": "2025-12-03T01:13:00.744Z",
+    "updatedAt": "2025-12-04T02:27:46.208Z",
+    "__v": 0,
+    "addOns": [
+      {
+        "name": "وانیلی",
+        "price": 10000,
+        "emoji": "🍮",
+        "category": "syrup",
+        "_id": "6930f113e62a9fe812b2eb0b"
+      },
+      {
+        "name": "کارامل",
+        "price": 12000,
+        "emoji": "🍯",
+        "category": "syrup",
+        "_id": "6930f113e62a9fe812b2eb0c"
+      },
+      {
+        "name": "فندق",
+        "price": 12000,
+        "emoji": "🥜",
+        "category": "syrup",
+        "_id": "6930f113e62a9fe812b2eb0d"
+      },
+      {
+        "name": "شیر جو",
+        "price": 20000,
+        "emoji": "🌾",
+        "category": "milk",
+        "_id": "6930f14ee62a9fe812b2eb52"
+      },
+      {
+        "name": "شیر بادام",
+        "price": 20000,
+        "emoji": "🌰",
+        "category": "milk",
+        "_id": "6930f14ee62a9fe812b2eb53"
+      }
+    ]
+  },
+  {
+    "_id": "692f8e9cc1fe341f4d453ff2",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "name": "لاته",
+    "description": "قهوه با شیر زیاد",
+    "price": 70000,
+    "category": "coffee",
+    "vibes": [
+      "relaxing"
+    ],
+    "image": "https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=400",
+    "available": true,
+    "createdAt": "2025-12-03T01:13:00.744Z",
+    "updatedAt": "2025-12-04T02:27:46.198Z",
+    "__v": 0,
+    "addOns": [
+      {
+        "name": "شیر جو",
+        "price": 20000,
+        "emoji": "🌾",
+        "category": "milk",
+        "_id": "6930f113e62a9fe812b2eaf9"
+      },
+      {
+        "name": "شیر بادام",
+        "price": 20000,
+        "emoji": "🌰",
+        "category": "milk",
+        "_id": "6930f113e62a9fe812b2eafa"
+      }
+    ]
+  },
+  {
+    "_id": "692f8e9cc1fe341f4d453ff3",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "name": "آیس لاته",
+    "description": "لاته سرد",
+    "price": 75000,
+    "category": "cold",
+    "vibes": [
+      "cold",
+      "energy"
+    ],
+    "image": "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400",
+    "available": true,
+    "createdAt": "2025-12-03T01:13:00.744Z",
+    "updatedAt": "2025-12-04T02:25:23.323Z",
+    "__v": 0,
+    "addOns": [
+      {
+        "name": "وانیلی",
+        "price": 10000,
+        "emoji": "🍮",
+        "category": "syrup",
+        "_id": "6930f113e62a9fe812b2eb16"
+      },
+      {
+        "name": "کارامل",
+        "price": 12000,
+        "emoji": "🍯",
+        "category": "syrup",
+        "_id": "6930f113e62a9fe812b2eb17"
+      },
+      {
+        "name": "فندق",
+        "price": 12000,
+        "emoji": "🥜",
+        "category": "syrup",
+        "_id": "6930f113e62a9fe812b2eb18"
+      }
+    ]
+  },
+  {
+    "_id": "692f8e9cc1fe341f4d453ff4",
+    "restaurantId": "692f8e9cc1fe341f4d453fe7",
+    "name": "کروسان",
+    "description": "شیرینی فرانسوی",
+    "price": 55000,
+    "category": "pastry",
+    "vibes": [
+      "hungry"
+    ],
+    "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400",
+    "available": true,
+    "createdAt": "2025-12-03T01:13:00.744Z",
+    "updatedAt": "2025-12-03T01:13:00.744Z",
+    "__v": 0
+  }
+]

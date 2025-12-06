@@ -1,0 +1,36 @@
+[
+  {
+    "_id": "692f8e9cc1fe341f4d453fe7",
+    "name": "کافه دمو",
+    "slug": "demo-cafe",
+    "address": {
+      "street": "خیابان ولیعصر",
+      "city": "تهران",
+      "country": "Iran",
+      "postalCode": "1234567890"
+    },
+    "contact": {
+      "phone": "+98 21 1234 5678",
+      "email": "info@democafe.local"
+    },
+    "settings": {
+      "currency": "IRR",
+      "timezone": "Asia/Tehran",
+      "language": "fa",
+      "taxRate": 9
+    },
+    "subscription": {
+      "plan": "premium",
+      "status": "active"
+    },
+    "branding": {
+      "primaryColor": "#8B5CF6",
+      "logo": "/logo.png"
+    },
+    "ownerId": "692f8e9bc1fe341f4d453fe0",
+    "isActive": true,
+    "createdAt": "2025-12-03T01:13:00.076Z",
+    "updatedAt": "2025-12-03T01:13:00.076Z",
+    "__v": 0
+  }
+]

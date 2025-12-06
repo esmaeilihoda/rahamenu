@@ -34,6 +34,9 @@ import { tenantMiddleware } from './middleware/tenant.middleware';
 const app: Application = express();
 const httpServer = createServer(app);
 
+// Trust proxy for Render deployment (needed for rate limiting and real IP detection)
+app.set('trust proxy', 1);
+
 // Rate limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
