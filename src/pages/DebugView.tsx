@@ -1,19 +1,27 @@
+import React, { useEffect, useState } from 'react';
+
+const API_URL = import.meta.env.VITE_API_URL || 'https://rahamenu.onrender.com/api/v1';
+
 export const DebugView = () => {
   const vibeDebug = localStorage.getItem('_vibe_debug');
   const apiDebug = localStorage.getItem('_api_debug');
   const vibeData = vibeDebug ? JSON.parse(vibeDebug) : null;
   const apiData = apiDebug ? JSON.parse(apiDebug) : null;
-  const [headerData, setHeaderData] = React.useState<any>(null);
+  const [headerData, setHeaderData] = useState<any>(null);
+  const [headerError, setHeaderError] = useState<string | null>(null);
 
-  React.useEffect(() => {
-    // Test what headers are being sent
-    fetch('/api/v1/debug/headers')
+  useEffect(() => {
+    // Test what headers are being sent (absolute URL so it hits the API, not the Vercel static site)
+    fetch(`${API_URL}/debug/headers`)
       .then(r => r.json())
       .then(data => {
         setHeaderData(data);
         localStorage.setItem('_header_debug', JSON.stringify(data));
       })
-      .catch(err => console.error('Header test failed:', err));
+      .catch(err => {
+        console.error('Header test failed:', err);
+        setHeaderError(err?.message || 'Header fetch failed');
+      });
   }, []);
 
   return (
@@ -50,6 +58,8 @@ export const DebugView = () => {
           <summary>Click to expand</summary>
           <pre>{JSON.stringify(headerData, null, 2)}</pre>
         </details>
+      ) : headerError ? (
+        <div style={{ color: '#f00' }}>Header load error: {headerError}</div>
       ) : (
         <div style={{ color: '#999' }}>Loading header data...</div>
       )}
