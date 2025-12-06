@@ -93,7 +93,7 @@ async function setupDatabase() {
 
     const users = await User.create([
       {
-        email: 'raha@menu.dev',
+        email: 'raha@menu.cafe',
         password: 'password123',
         name: 'مدیر دمو',
         role: 'manager',
@@ -191,7 +191,7 @@ async function setupDatabase() {
     console.log('==================');
     console.log(`Restaurant: ${restaurant.name} (${restaurant.slug})`);
     console.log(`Users: ${users.length}`);
-    console.log('  - manager@democafe.local (password: password123)');
+    console.log('  - raha@menu.cafe (password: password123)');
     console.log('  - kitchen@democafe.local (password: password123)');
     console.log('  - admin@menubloom.local (password: password123)');
     console.log(`Menu Items: ${menuItems.length}`);

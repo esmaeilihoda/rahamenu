@@ -8,7 +8,7 @@ const newPassword = process.argv[3];
 
 if (!email || !newPassword) {
   console.error('Usage: node reset-password.js <email> <new-password>');
-  console.error('Example: node reset-password.js manager@democafe.local admin123');
+  console.error('Example: node reset-password.js raha@menu.cafe admin123');
   process.exit(1);
 }
 

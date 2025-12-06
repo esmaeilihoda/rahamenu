@@ -1,7 +1,7 @@
 const https = require('http');
 
 const data = JSON.stringify({
-  email: 'manager@democafe.local',
+  email: 'raha@menu.cafe',
   password: 'password123'
 });
 

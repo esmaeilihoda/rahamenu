@@ -5,7 +5,7 @@ You now have full control over your restaurant's digital menu and table manageme
 
 ## 🔐 Login
 - URL: `http://localhost:8080/manager/login`
-- Credentials: `manager@democafe.local` / `password123`
+- Credentials: `raha@menu.cafe` / `password123`
 
 ---
 

@@ -4,7 +4,7 @@
 **URL**: https://rahamenu.vercel.app/manager/login
 
 **Manager Account:**
-- **Email**: manager@democafe.local
+- **Email**: raha@menu.cafe
 - **Password**: admin123
 
 **Owner Account (Alternative):**

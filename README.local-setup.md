@@ -124,7 +124,7 @@ npm run dev
 
 #### Manager Dashboard
 - URL: http://localhost:5173/manager/login
-- Email: `manager@democafe.local`
+- Email: `raha@menu.cafe`
 - Password: `password123`
 
 #### Kitchen Display
@@ -272,7 +272,7 @@ These are already in your `server/.env` file. Keep them secret!
 ## 📝 Demo Credentials
 
 ### Manager Account
-- Email: `manager@democafe.local`
+- Email: `raha@menu.cafe`
 - Password: `password123`
 - Access: Manager Dashboard, Orders, Analytics
 

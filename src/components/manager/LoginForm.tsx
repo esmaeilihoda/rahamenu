@@ -102,7 +102,7 @@ export const LoginForm = () => {
             <Input
               id="email"
               type="email"
-              placeholder="raha@menu.dev"
+              placeholder="raha@menu.cafe"
               dir="ltr"
               {...register('email')}
               disabled={isLoading}
