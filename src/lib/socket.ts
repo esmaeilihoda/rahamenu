@@ -2,6 +2,13 @@ import { io, Socket } from 'socket.io-client';
 
 const SOCKET_URL = import.meta.env.VITE_API_URL?.replace('/api/v1', '') || 'http://localhost:5000';
 
+console.log('🔧 Socket configuration:', {
+  VITE_API_URL: import.meta.env.VITE_API_URL,
+  SOCKET_URL,
+  mode: import.meta.env.MODE,
+  prod: import.meta.env.PROD,
+});
+
 export interface SocketEvent {
   event: string;
   handler: (data: any) => void;
@@ -23,17 +30,19 @@ class SocketService {
       return;
     }
 
-    console.log('🔌 Connecting to WebSocket server...');
+    console.log('🔌 Connecting to WebSocket server:', SOCKET_URL);
 
     this.socket = io(SOCKET_URL, {
       auth: {
         token,
       },
-      transports: ['websocket', 'polling'],
+      transports: ['polling', 'websocket'],
       reconnection: true,
       reconnectionDelay: 1000,
       reconnectionDelayMax: 5000,
       reconnectionAttempts: this.maxReconnectAttempts,
+      withCredentials: true,
+      secure: SOCKET_URL.startsWith('https'),
     });
 
     this.setupEventHandlers(restaurantId);
