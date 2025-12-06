@@ -10,10 +10,24 @@ const QRGenerator = () => {
   const [qrCodeUrl, setQrCodeUrl] = useState<string>('');
   const { toast } = useToast();
 
+  // Get the production URL - use env var if available, otherwise use window.location.origin
+  const getBaseUrl = () => {
+    const envUrl = import.meta.env.VITE_PRODUCTION_URL;
+    if (envUrl) return envUrl;
+    
+    // For production (Vercel), use the domain from window.location
+    if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      return `${window.location.protocol}//${window.location.host}`;
+    }
+    // For development, default to localhost
+    return 'http://localhost:5173';
+  };
+
   // Generate QR code whenever table number changes
   useEffect(() => {
     if (tableNumber) {
-      const customerUrl = `${window.location.origin}/demo-cafe/customer?table=${tableNumber}`;
+      const baseUrl = getBaseUrl();
+      const customerUrl = `${baseUrl}/demo-cafe/customer?table=${tableNumber}`;
       QRCodeLib.toDataURL(customerUrl, {
         width: 400,
         margin: 2,
@@ -30,7 +44,8 @@ const QRGenerator = () => {
   }, [tableNumber]);
 
   const handleCopy = () => {
-    const url = `${window.location.origin}/demo-cafe/customer?table=${tableNumber}`;
+    const baseUrl = getBaseUrl();
+    const url = `${baseUrl}/demo-cafe/customer?table=${tableNumber}`;
     navigator.clipboard.writeText(url);
     setCopied(true);
     toast({
@@ -113,7 +128,7 @@ const QRGenerator = () => {
               {/* URL Display */}
               <div className="bg-muted rounded-xl p-4 flex items-center gap-4 max-w-md mx-auto">
                 <code className="flex-1 text-sm text-muted-foreground truncate" dir="ltr">
-                  localhost:8080/demo-cafe/customer?table={tableNumber}
+                  {getBaseUrl()}/demo-cafe/customer?table={tableNumber}
                 </code>
                 <button
                   onClick={handleCopy}

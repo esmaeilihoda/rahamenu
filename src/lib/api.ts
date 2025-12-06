@@ -27,6 +27,16 @@ apiClient.interceptors.request.use(
       restaurantId = getRestaurantId?.();
     }
     
+    // If still no restaurant ID, try to extract from URL path (for customer pages)
+    if (!restaurantId) {
+      const urlPath = window.location.pathname;
+      const pathSegments = urlPath.split('/').filter(Boolean);
+      if (pathSegments.length > 0 && pathSegments[0] !== 'manager' && pathSegments[0] !== 'kitchen') {
+        // The first path segment is likely the restaurant slug (e.g., /demo-cafe/customer)
+        restaurantId = pathSegments[0];
+      }
+    }
+    
     if (restaurantId) {
       config.headers['X-Restaurant-Id'] = restaurantId;
     } else {

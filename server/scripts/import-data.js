@@ -42,13 +42,29 @@ async function importData() {
       // Clear existing data
       await collection.deleteMany({});
       
-      // Convert string _id to ObjectId if needed
+      // Convert string _id and other ObjectId fields to proper ObjectIds
+      const { ObjectId } = require('mongodb');
       const processedDocs = documents.map(doc => {
-        if (doc._id && typeof doc._id === 'string') {
-          const ObjectId = require('mongodb').ObjectId;
-          return { ...doc, _id: new ObjectId(doc._id) };
+        const processed = { ...doc };
+        
+        // Convert _id if it's a string
+        if (processed._id && typeof processed._id === 'string') {
+          processed._id = new ObjectId(processed._id);
         }
-        return doc;
+        
+        // Convert other common ObjectId fields
+        const objectIdFields = ['restaurantId', 'userId', 'menuItemId', 'tableId', 'orderId', 'ownerId'];
+        objectIdFields.forEach(field => {
+          if (processed[field] && typeof processed[field] === 'string') {
+            try {
+              processed[field] = new ObjectId(processed[field]);
+            } catch (e) {
+              // Keep as string if it's not a valid ObjectId
+            }
+          }
+        });
+        
+        return processed;
       });
       
       // Insert new data
