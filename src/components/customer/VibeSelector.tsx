@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import apiClient from '@/lib/api';
 
@@ -13,49 +12,40 @@ const VibeSelector = ({ selectedVibe, onSelectVibe }: VibeSelectorProps) => {
     (async () => {
       try {
         const { data } = await apiClient.get('/vibes');
+        console.log('✅ Vibes loaded:', data?.data?.length);
         const list = (data?.data || []).map((v: any) => ({ key: v.key, label: v.label, emoji: v.emoji }));
         setVibes(list);
-      } catch {}
+      } catch (error) {
+        console.error('❌ Failed to load vibes:', error);
+      }
     })();
   }, []);
   return (
-    <div className="w-full overflow-x-auto scrollbar-hide py-4 px-4">
-      <motion.div 
-        className="flex gap-3"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
+    <div className="w-full py-4 px-4 vibes-scroll" style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', display: 'flex', gap: '12px' }}>
+      {/* All Vibes Button */}
+      <button
+        onClick={() => onSelectVibe(null)}
+        className={`flex items-center gap-2 px-5 py-3 rounded-full whitespace-nowrap transition-all flex-shrink-0 ${
+          selectedVibe === null ? 'pill-active' : 'pill-inactive'
+        }`}
       >
-        <motion.button
-          onClick={() => onSelectVibe(null)}
-          className={`flex items-center gap-2 px-5 py-3 rounded-full whitespace-nowrap transition-all ${
-            selectedVibe === null ? 'pill-active' : 'pill-inactive'
+        <span className="text-lg">✨</span>
+        <span className="font-medium">همه موارد</span>
+      </button>
+      
+      {/* Individual Vibe Buttons */}
+      {vibes.map((vibe) => (
+        <button
+          key={vibe.key}
+          onClick={() => onSelectVibe(vibe.key)}
+          className={`flex items-center gap-2 px-5 py-3 rounded-full whitespace-nowrap transition-all flex-shrink-0 ${
+            selectedVibe === vibe.key ? 'pill-active' : 'pill-inactive'
           }`}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
         >
-          <span className="text-lg">✨</span>
-          <span className="font-medium">همه موارد</span>
-        </motion.button>
-        
-        {vibes.map((vibe, index) => (
-          <motion.button
-            key={vibe.key}
-            onClick={() => onSelectVibe(vibe.key)}
-            className={`flex items-center gap-2 px-5 py-3 rounded-full whitespace-nowrap transition-all ${
-              selectedVibe === vibe.key ? 'pill-active' : 'pill-inactive'
-            }`}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="text-lg">{vibe.emoji || '✨'}</span>
-            <span className="font-medium">{vibe.label}</span>
-          </motion.button>
-        ))}
-      </motion.div>
+          <span className="text-lg">{vibe.emoji || '✨'}</span>
+          <span className="font-medium">{vibe.label}</span>
+        </button>
+      ))}
     </div>
   );
 };
