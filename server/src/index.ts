@@ -29,12 +29,14 @@ import analyticsRoutes from './routes/analytics.routes';
 import paymentRoutes from './routes/payment.routes';
 import vibeRoutes from './routes/vibe.routes';
 import { tenantMiddleware } from './middleware/tenant.middleware';
+app.use('/api/', limiter); // Apply rate limiting to API routes
+// Skip tenant middleware for all auth/* endpoints (they use JWT authentication)
+app.use('/api/v1', (req, res, next) => {
+  if (req.path.startsWith('/auth/')) return next();
+  return tenantMiddleware(req, res, next);
+});
 
-// Initialize Express app
-const app: Application = express();
-const httpServer = createServer(app);
-
-// Trust proxy for Render deployment (needed for rate limiting and real IP detection)
+// Health check endpoint
 app.set('trust proxy', 1);
 
 // Rate limiting
@@ -57,8 +59,9 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/api/', limiter); // Apply rate limiting to API routes
 // Apply tenant isolation to all v1 routes except auth endpoints
+// Skip tenant middleware for all auth/* endpoints (they use JWT authentication)
 app.use('/api/v1', (req, res, next) => {
-  if (req.path.startsWith('/auth/register') || req.path.startsWith('/auth/login')) return next();
+  if (req.path.startsWith('/auth/')) return next();
   return tenantMiddleware(req, res, next);
 });
 
