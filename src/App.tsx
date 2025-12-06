@@ -16,6 +16,7 @@ import ManagerProfile from "./pages/ManagerProfile";
 import NotFound from "./pages/NotFound";
 import KitchenDisplay from "./pages/KitchenDisplay";
 import { PaymentVerify } from "./pages/PaymentVerify";
+import { DebugView } from "./pages/DebugView";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +65,7 @@ const App = () => (
               }
             />
             <Route path="/payment/verify" element={<PaymentVerify />} />
+            <Route path="/debug" element={<DebugView />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
