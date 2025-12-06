@@ -43,6 +43,12 @@ apiClient.interceptors.request.use(
         console.log('[API] Step 3 - Extracted restaurant slug from URL:', restaurantId);
       }
     }
+
+    // FINAL HARD FALLBACK: if still missing, use env slug or demo-cafe
+    if (!restaurantId) {
+      restaurantId = import.meta.env.VITE_RESTAURANT_ID || 'demo-cafe';
+      console.warn('[API] Fallback restaurantId applied:', restaurantId);
+    }
     
     if (restaurantId) {
       config.headers['X-Restaurant-Id'] = restaurantId;
