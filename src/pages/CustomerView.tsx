@@ -147,6 +147,22 @@ const CustomerViewContent = () => {
             <span className="text-sm">برای نمایش آیتم‌های مناسب حال و هوای شما، یک حس‌وحال از بالا انتخاب کنید.</span>
           </div>
         )}
+        
+        {/* Debug indicator - always visible */}
+        <div style={{ 
+          position: 'absolute', 
+          top: '80px', 
+          right: '4px',
+          fontSize: '10px',
+          color: '#ff6b00',
+          zIndex: 40,
+          backgroundColor: '#000',
+          padding: '2px 4px',
+          borderRadius: '2px',
+          whiteSpace: 'nowrap'
+        }}>
+          CV Vibes: {vibes.length}
+        </div>
       </motion.header>
 
       {/* Menu Feed */}

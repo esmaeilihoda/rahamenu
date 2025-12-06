@@ -11,17 +11,36 @@ const VibeSelector = ({ selectedVibe, onSelectVibe }: VibeSelectorProps) => {
   useEffect(() => {
     (async () => {
       try {
+        console.log('[VibeSelector] Fetching vibes...');
         const { data } = await apiClient.get('/vibes');
-        console.log('✅ Vibes loaded:', data?.data?.length);
+        console.log('[VibeSelector] ✅ Vibes loaded:', data?.data?.length);
         const list = (data?.data || []).map((v: any) => ({ key: v.key, label: v.label, emoji: v.emoji }));
         setVibes(list);
-      } catch (error) {
-        console.error('❌ Failed to load vibes:', error);
+        localStorage.setItem('_vibe_debug', JSON.stringify({ status: 'success', count: list.length, timestamp: new Date().toISOString() }));
+      } catch (error: any) {
+        const errorMsg = error?.response?.status ? `HTTP ${error.response.status}` : error?.message || 'Unknown error';
+        console.error('[VibeSelector] ❌ Failed to load vibes:', errorMsg);
+        localStorage.setItem('_vibe_debug', JSON.stringify({ status: 'error', message: errorMsg, timestamp: new Date().toISOString() }));
       }
     })();
   }, []);
   return (
-    <div className="w-full py-4 px-4 vibes-scroll" style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', display: 'flex', gap: '12px' }}>
+    <div style={{ position: 'relative' }}>
+      {/* Debug: Always visible indicator */}
+      <div style={{ 
+        position: 'absolute', 
+        top: '-30px', 
+        left: '4px',
+        fontSize: '10px',
+        color: '#ff6b00',
+        zIndex: 50,
+        backgroundColor: '#000',
+        padding: '2px 4px',
+        borderRadius: '2px'
+      }}>
+        Vibes: {vibes.length}
+      </div>
+      <div className="w-full py-4 px-4 vibes-scroll" style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', display: 'flex', gap: '12px' }}>
       {/* All Vibes Button */}
       <button
         onClick={() => onSelectVibe(null)}
@@ -46,6 +65,7 @@ const VibeSelector = ({ selectedVibe, onSelectVibe }: VibeSelectorProps) => {
           <span className="font-medium">{vibe.label}</span>
         </button>
       ))}
+    </div>
     </div>
   );
 };

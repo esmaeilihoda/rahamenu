@@ -31,16 +31,25 @@ apiClient.interceptors.request.use(
     if (!restaurantId) {
       const urlPath = window.location.pathname;
       const pathSegments = urlPath.split('/').filter(Boolean);
+      console.log('[API Interceptor] URL path:', urlPath, 'Segments:', pathSegments);
       if (pathSegments.length > 0 && pathSegments[0] !== 'manager' && pathSegments[0] !== 'kitchen') {
         // The first path segment is likely the restaurant slug (e.g., /demo-cafe/customer)
         restaurantId = pathSegments[0];
+        console.log('[API Interceptor] Extracted restaurant slug from URL:', restaurantId);
       }
     }
     
     if (restaurantId) {
       config.headers['X-Restaurant-Id'] = restaurantId;
+      console.log('[API Interceptor] Adding X-Restaurant-Id:', restaurantId, 'for', config.url);
     } else {
-      console.warn('⚠️ API Request without restaurant context:', config.url);
+      console.warn('[API Interceptor] ⚠️ No restaurant context for:', config.url);
+      localStorage.setItem('_api_debug', JSON.stringify({ 
+        event: 'no_restaurant_id', 
+        url: config.url,
+        pathname: typeof window !== 'undefined' ? window.location.pathname : 'N/A',
+        timestamp: new Date().toISOString() 
+      }));
     }
     return config;
   },
