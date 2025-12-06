@@ -4,6 +4,8 @@ import { MenuItem } from '../models/MenuItem.model';
 import { AuthRequest } from '../middleware/auth.middleware';
 import { AppError, asyncHandler } from '../middleware/errorHandler';
 import { getSocketService } from '../services/websocket.service';
+import { Types } from 'mongoose';
+import { Restaurant } from '../models/Restaurant.model';
 
 // Validation schemas
 export const createMenuItemSchema = z.object({
@@ -50,8 +52,17 @@ export const updateMenuItemSchema = z.object({
 
 // Get all menu items for a restaurant
 export const getMenuItems = asyncHandler(async (req: AuthRequest, res: Response) => {
-  const restaurantId = (req as any).restaurantId as string;
+  let restaurantId = (req as any).restaurantId as string;
   const { category, available, vibe } = req.query;
+
+  // If restaurantId is not a valid ObjectId (e.g., it's a slug), look it up
+  if (!Types.ObjectId.isValid(restaurantId)) {
+    const restaurant = await Restaurant.findOne({ slug: restaurantId, isActive: true });
+    if (!restaurant) {
+      return res.status(404).json({ error: 'Restaurant not found' });
+    }
+    restaurantId = restaurant._id.toString();
+  }
 
   const query: any = { restaurantId };
 
@@ -78,7 +89,16 @@ export const getMenuItems = asyncHandler(async (req: AuthRequest, res: Response)
 // Get single menu item
 export const getMenuItem = asyncHandler(async (req: AuthRequest, res: Response) => {
   const { id } = req.params;
-  const restaurantId = (req as any).restaurantId as string;
+  let restaurantId = (req as any).restaurantId as string;
+
+  // If restaurantId is not a valid ObjectId, look it up
+  if (!Types.ObjectId.isValid(restaurantId)) {
+    const restaurant = await Restaurant.findOne({ slug: restaurantId, isActive: true });
+    if (!restaurant) {
+      return res.status(404).json({ error: 'Restaurant not found' });
+    }
+    restaurantId = restaurant._id.toString();
+  }
 
   const menuItem = await MenuItem.findOne({ _id: id, restaurantId });
 
