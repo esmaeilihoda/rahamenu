@@ -3,6 +3,18 @@ export const DebugView = () => {
   const apiDebug = localStorage.getItem('_api_debug');
   const vibeData = vibeDebug ? JSON.parse(vibeDebug) : null;
   const apiData = apiDebug ? JSON.parse(apiDebug) : null;
+  const [headerData, setHeaderData] = React.useState<any>(null);
+
+  React.useEffect(() => {
+    // Test what headers are being sent
+    fetch('/api/v1/debug/headers')
+      .then(r => r.json())
+      .then(data => {
+        setHeaderData(data);
+        localStorage.setItem('_header_debug', JSON.stringify(data));
+      })
+      .catch(err => console.error('Header test failed:', err));
+  }, []);
 
   return (
     <div style={{ padding: '20px', fontFamily: 'monospace', fontSize: '12px', color: '#fff', backgroundColor: '#000', minHeight: '100vh', whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
@@ -30,6 +42,16 @@ export const DebugView = () => {
         </>
       ) : (
         <div style={{ color: '#999' }}>No API debug data yet</div>
+      )}
+
+      <h2 style={{ marginTop: '20px' }}>Headers Being Sent:</h2>
+      {headerData ? (
+        <details>
+          <summary>Click to expand</summary>
+          <pre>{JSON.stringify(headerData, null, 2)}</pre>
+        </details>
+      ) : (
+        <div style={{ color: '#999' }}>Loading header data...</div>
       )}
 
       <h2 style={{ marginTop: '20px' }}>Current URL:</h2>

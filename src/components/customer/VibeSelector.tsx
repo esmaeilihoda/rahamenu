@@ -18,9 +18,18 @@ const VibeSelector = ({ selectedVibe, onSelectVibe }: VibeSelectorProps) => {
         setVibes(list);
         localStorage.setItem('_vibe_debug', JSON.stringify({ status: 'success', count: list.length, timestamp: new Date().toISOString() }));
       } catch (error: any) {
-        const errorMsg = error?.response?.status ? `HTTP ${error.response.status}` : error?.message || 'Unknown error';
+        const status = error?.response?.status || 'unknown';
+        const statusText = error?.response?.statusText || '';
+        const errorMsg = `HTTP ${status} ${statusText}`;
         console.error('[VibeSelector] ❌ Failed to load vibes:', errorMsg);
-        localStorage.setItem('_vibe_debug', JSON.stringify({ status: 'error', message: errorMsg, timestamp: new Date().toISOString() }));
+        console.error('[VibeSelector] Full error:', error);
+        localStorage.setItem('_vibe_debug', JSON.stringify({ 
+          status: 'error', 
+          httpStatus: status,
+          statusText: statusText,
+          message: errorMsg,
+          timestamp: new Date().toISOString() 
+        }));
       }
     })();
   }, []);

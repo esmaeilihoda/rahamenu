@@ -28,6 +28,7 @@ import tableRoutes from './routes/table.routes';
 import analyticsRoutes from './routes/analytics.routes';
 import paymentRoutes from './routes/payment.routes';
 import vibeRoutes from './routes/vibe.routes';
+import debugRoutes from './routes/debug.routes';
 import { tenantMiddleware } from './middleware/tenant.middleware';
 
 // Create Express app
@@ -57,9 +58,12 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/api/', limiter); // Apply rate limiting to API routes
 
-// Skip tenant middleware for all auth/* endpoints (they use JWT authentication)
+// Debug routes - BEFORE tenant middleware
+app.use('/api/v1/debug', debugRoutes);
+
+// Skip tenant middleware for all auth/* and debug/* endpoints
 app.use('/api/v1', (req, res, next) => {
-  if (req.path.startsWith('/auth/')) return next();
+  if (req.path.startsWith('/auth/') || req.path.startsWith('/debug/')) return next();
   return tenantMiddleware(req, res, next);
 });
 
