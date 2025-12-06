@@ -16,7 +16,7 @@ import ManagerProfile from "./pages/ManagerProfile";
 import NotFound from "./pages/NotFound";
 import KitchenDisplay from "./pages/KitchenDisplay";
 import { PaymentVerify } from "./pages/PaymentVerify";
-import { DebugView } from "./pages/DebugView";
+import DebugView from "./pages/DebugView";
 
 const queryClient = new QueryClient();
 

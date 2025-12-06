@@ -11,45 +11,16 @@ const VibeSelector = ({ selectedVibe, onSelectVibe }: VibeSelectorProps) => {
   useEffect(() => {
     (async () => {
       try {
-        console.log('[VibeSelector] Fetching vibes...');
         const { data } = await apiClient.get('/vibes');
-        console.log('[VibeSelector] ✅ Vibes loaded:', data?.data?.length);
         const list = (data?.data || []).map((v: any) => ({ key: v.key, label: v.label, emoji: v.emoji }));
         setVibes(list);
-        localStorage.setItem('_vibe_debug', JSON.stringify({ status: 'success', count: list.length, timestamp: new Date().toISOString() }));
-      } catch (error: any) {
-        const status = error?.response?.status || 'unknown';
-        const statusText = error?.response?.statusText || '';
-        const errorMsg = `HTTP ${status} ${statusText}`;
-        console.error('[VibeSelector] ❌ Failed to load vibes:', errorMsg);
-        console.error('[VibeSelector] Full error:', error);
-        localStorage.setItem('_vibe_debug', JSON.stringify({ 
-          status: 'error', 
-          httpStatus: status,
-          statusText: statusText,
-          message: errorMsg,
-          timestamp: new Date().toISOString() 
-        }));
+      } catch (error) {
+        console.error('Failed to load vibes:', error);
       }
     })();
   }, []);
   return (
-    <div style={{ position: 'relative' }}>
-      {/* Debug: Always visible indicator */}
-      <div style={{ 
-        position: 'absolute', 
-        top: '-30px', 
-        left: '4px',
-        fontSize: '10px',
-        color: '#ff6b00',
-        zIndex: 50,
-        backgroundColor: '#000',
-        padding: '2px 4px',
-        borderRadius: '2px'
-      }}>
-        Vibes: {vibes.length}
-      </div>
-      <div className="w-full py-4 px-4 vibes-scroll" style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', display: 'flex', gap: '12px' }}>
+    <div className="w-full py-4 px-4 vibes-scroll" style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', display: 'flex', gap: '12px' }}>
       {/* All Vibes Button */}
       <button
         onClick={() => onSelectVibe(null)}
