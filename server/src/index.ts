@@ -29,15 +29,12 @@ import analyticsRoutes from './routes/analytics.routes';
 import paymentRoutes from './routes/payment.routes';
 import vibeRoutes from './routes/vibe.routes';
 import { tenantMiddleware } from './middleware/tenant.middleware';
-app.use('/api/', limiter); // Apply rate limiting to API routes
-// Skip tenant middleware for all auth/* endpoints (they use JWT authentication)
-app.use('/api/v1', (req, res, next) => {
-  if (req.path.startsWith('/auth/')) return next();
-  return tenantMiddleware(req, res, next);
-});
 
-// Health check endpoint
-app.set('trust proxy', 1);
+// Create Express app
+const app: Application = express();
+
+// Create HTTP server with Socket.IO
+const httpServer = createServer(app);
 
 // Rate limiting
 const limiter = rateLimit({
@@ -49,6 +46,7 @@ const limiter = rateLimit({
 });
 
 // Middleware
+app.set('trust proxy', 1);
 app.use(helmet()); // Security headers
 app.use(cors({
   origin: env.CLIENT_URL,
@@ -58,7 +56,7 @@ app.use(morgan(env.NODE_ENV === 'development' ? 'dev' : 'combined')); // Logging
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/api/', limiter); // Apply rate limiting to API routes
-// Apply tenant isolation to all v1 routes except auth endpoints
+
 // Skip tenant middleware for all auth/* endpoints (they use JWT authentication)
 app.use('/api/v1', (req, res, next) => {
   if (req.path.startsWith('/auth/')) return next();

@@ -5,7 +5,7 @@ import { AuthRequest } from '../middleware/auth.middleware';
 import { Types } from 'mongoose';
 import { Restaurant } from '../models/Restaurant.model';
 
-export const listVibes = asyncHandler(async (req: AuthRequest, res: Response) => {
+export const listVibes = asyncHandler(async (req: AuthRequest, res: Response): Promise<void> => {
   let restaurantId = (req as any).restaurantId as string;
   
   // If restaurantId is not a valid ObjectId (e.g., it's a slug like "demo-cafe"),
@@ -13,7 +13,8 @@ export const listVibes = asyncHandler(async (req: AuthRequest, res: Response) =>
   if (!Types.ObjectId.isValid(restaurantId)) {
     const restaurant = await Restaurant.findOne({ slug: restaurantId, isActive: true });
     if (!restaurant) {
-      return res.status(404).json({ error: 'Restaurant not found' });
+      res.status(404).json({ error: 'Restaurant not found' });
+      return;
     }
     restaurantId = restaurant._id.toString();
   }
@@ -22,14 +23,15 @@ export const listVibes = asyncHandler(async (req: AuthRequest, res: Response) =>
   res.json({ data: vibes });
 });
 
-export const createVibe = asyncHandler(async (req: AuthRequest, res: Response) => {
+export const createVibe = asyncHandler(async (req: AuthRequest, res: Response): Promise<void> => {
   let restaurantId = (req as any).restaurantId as string;
   
   // If restaurantId is not a valid ObjectId, look it up
   if (!Types.ObjectId.isValid(restaurantId)) {
     const restaurant = await Restaurant.findOne({ slug: restaurantId, isActive: true });
     if (!restaurant) {
-      return res.status(404).json({ error: 'Restaurant not found' });
+      res.status(404).json({ error: 'Restaurant not found' });
+      return;
     }
     restaurantId = restaurant._id.toString();
   }
@@ -39,14 +41,15 @@ export const createVibe = asyncHandler(async (req: AuthRequest, res: Response) =
   res.status(201).json({ data: vibe });
 });
 
-export const updateVibe = asyncHandler(async (req: AuthRequest, res: Response) => {
+export const updateVibe = asyncHandler(async (req: AuthRequest, res: Response): Promise<void> => {
   let restaurantId = (req as any).restaurantId as string;
   
   // If restaurantId is not a valid ObjectId, look it up
   if (!Types.ObjectId.isValid(restaurantId)) {
     const restaurant = await Restaurant.findOne({ slug: restaurantId, isActive: true });
     if (!restaurant) {
-      return res.status(404).json({ error: 'Restaurant not found' });
+      res.status(404).json({ error: 'Restaurant not found' });
+      return;
     }
     restaurantId = restaurant._id.toString();
   }
@@ -57,14 +60,15 @@ export const updateVibe = asyncHandler(async (req: AuthRequest, res: Response) =
   res.json({ data: vibe });
 });
 
-export const deleteVibe = asyncHandler(async (req: AuthRequest, res: Response) => {
+export const deleteVibe = asyncHandler(async (req: AuthRequest, res: Response): Promise<void> => {
   let restaurantId = (req as any).restaurantId as string;
   
   // If restaurantId is not a valid ObjectId, look it up
   if (!Types.ObjectId.isValid(restaurantId)) {
     const restaurant = await Restaurant.findOne({ slug: restaurantId, isActive: true });
     if (!restaurant) {
-      return res.status(404).json({ error: 'Restaurant not found' });
+      res.status(404).json({ error: 'Restaurant not found' });
+      return;
     }
     restaurantId = restaurant._id.toString();
   }

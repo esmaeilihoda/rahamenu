@@ -51,7 +51,7 @@ export const updateMenuItemSchema = z.object({
 });
 
 // Get all menu items for a restaurant
-export const getMenuItems = asyncHandler(async (req: AuthRequest, res: Response) => {
+export const getMenuItems = asyncHandler(async (req: AuthRequest, res: Response): Promise<void> => {
   let restaurantId = (req as any).restaurantId as string;
   const { category, available, vibe } = req.query;
 
@@ -59,7 +59,8 @@ export const getMenuItems = asyncHandler(async (req: AuthRequest, res: Response)
   if (!Types.ObjectId.isValid(restaurantId)) {
     const restaurant = await Restaurant.findOne({ slug: restaurantId, isActive: true });
     if (!restaurant) {
-      return res.status(404).json({ error: 'Restaurant not found' });
+      res.status(404).json({ error: 'Restaurant not found' });
+      return;
     }
     restaurantId = restaurant._id.toString();
   }
@@ -87,7 +88,7 @@ export const getMenuItems = asyncHandler(async (req: AuthRequest, res: Response)
 });
 
 // Get single menu item
-export const getMenuItem = asyncHandler(async (req: AuthRequest, res: Response) => {
+export const getMenuItem = asyncHandler(async (req: AuthRequest, res: Response): Promise<void> => {
   const { id } = req.params;
   let restaurantId = (req as any).restaurantId as string;
 
@@ -95,7 +96,8 @@ export const getMenuItem = asyncHandler(async (req: AuthRequest, res: Response) 
   if (!Types.ObjectId.isValid(restaurantId)) {
     const restaurant = await Restaurant.findOne({ slug: restaurantId, isActive: true });
     if (!restaurant) {
-      return res.status(404).json({ error: 'Restaurant not found' });
+      res.status(404).json({ error: 'Restaurant not found' });
+      return;
     }
     restaurantId = restaurant._id.toString();
   }
