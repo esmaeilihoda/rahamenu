@@ -140,7 +140,7 @@ curl http://localhost:5000/health
 curl -X POST http://localhost:5000/api/v1/auth/register \
   -H "Content-Type: application/json" \
   -d '{
-    "email": "manager@menubloom.com",
+    "email": "raha@menu.dev",
     "password": "password123",
     "name": "Manager User",
     "role": "manager"

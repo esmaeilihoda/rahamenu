@@ -93,7 +93,7 @@ async function setupDatabase() {
 
     const users = await User.create([
       {
-        email: 'manager@democafe.local',
+        email: 'raha@menu.dev',
         password: 'password123',
         name: 'مدیر دمو',
         role: 'manager',

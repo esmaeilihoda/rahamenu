@@ -102,7 +102,7 @@ export const LoginForm = () => {
             <Input
               id="email"
               type="email"
-              placeholder="manager@menubloom.com"
+              placeholder="raha@menu.dev"
               dir="ltr"
               {...register('email')}
               disabled={isLoading}

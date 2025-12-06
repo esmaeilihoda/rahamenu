@@ -77,7 +77,7 @@ Open your terminal and run:
 curl -X POST http://localhost:5000/api/v1/auth/register \
   -H "Content-Type: application/json" \
   -d '{
-    "email": "manager@menubloom.com",
+   "email": "raha@menu.dev",
     "password": "password123",
     "name": "Test Manager",
     "role": "manager"
@@ -90,7 +90,7 @@ Or use a tool like Postman/Insomnia.
 
 1. Go to `http://localhost:5173/manager` (will redirect to login)
 2. Enter credentials:
-   - **Email**: `manager@menubloom.com`
+   - **Email**: `raha@menu.dev`
    - **Password**: `password123`
 3. Click "ورود به پنل" (Login)
 4. You should be redirected to the manager dashboard
