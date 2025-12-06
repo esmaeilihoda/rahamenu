@@ -20,7 +20,10 @@ const VibeSelector = ({ selectedVibe, onSelectVibe }: VibeSelectorProps) => {
     })();
   }, []);
   return (
-    <div className="w-full py-4 px-4 vibes-scroll" style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', display: 'flex', gap: '12px' }}>
+    <div
+      className="w-full py-4 px-4 vibes-scroll"
+      style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch', display: 'flex', gap: '12px' }}
+    >
       {/* All Vibes Button */}
       <button
         onClick={() => onSelectVibe(null)}
@@ -31,7 +34,7 @@ const VibeSelector = ({ selectedVibe, onSelectVibe }: VibeSelectorProps) => {
         <span className="text-lg">✨</span>
         <span className="font-medium">همه موارد</span>
       </button>
-      
+
       {/* Individual Vibe Buttons */}
       {vibes.map((vibe) => (
         <button
@@ -45,7 +48,6 @@ const VibeSelector = ({ selectedVibe, onSelectVibe }: VibeSelectorProps) => {
           <span className="font-medium">{vibe.label}</span>
         </button>
       ))}
-    </div>
     </div>
   );
 };

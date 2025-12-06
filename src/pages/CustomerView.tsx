@@ -30,6 +30,24 @@ const CustomerViewContent = () => {
   const [error, setError] = useState<string | null>(null);
   const [tableId, setTableId] = useState<string | undefined>(undefined);
 
+  // Guard against any legacy debug badges injected by old bundles/extensions
+  useEffect(() => {
+    const stripBadge = () => {
+      document.querySelectorAll('div').forEach((el) => {
+        const text = el.textContent?.trim().toLowerCase();
+        if (!text) return;
+        if (text.startsWith('cv vibes:') || text.startsWith('vibes:')) {
+          el.remove();
+        }
+      });
+    };
+
+    stripBadge();
+    const observer = new MutationObserver(stripBadge);
+    observer.observe(document.body, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     if (!searchParams.get('table')) {
       console.warn('No table number in URL. Customers should scan QR code.');
